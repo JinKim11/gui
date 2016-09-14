@@ -1,0 +1,30 @@
+from Tkinter import *
+
+root_widget = Tk()
+var_label_text = StringVar()
+var_label_first = StringVar()
+var_label_last = StringVar()
+entry_text = Entry(text = "First Name:")
+entry_text_last = Entry(text = "Last Name:")
+
+def main():
+	root_widget.geometry("300x100")
+	root_widget.title("Name GUI")
+	var_label_text.set("Display your full name here.")
+	lbl_title = Label(root_widget, textvariable=var_label_text)
+	lbl_title.grid(row = 1, columnspan = 2)
+	var_label_first.set("First name:")
+	lbl_first = Label(root_widget, textvariable=var_label_first)
+	lbl_first.grid(row = 2, column = 0)
+	entry_text.insert(0, "Type first name")
+	entry_text.grid(row = 2, column = 1)
+	var_label_last.set("Last name:")
+	lbl_last = Label(root_widget, textvariable=var_label_last)
+	lbl_last.grid(row = 3, column = 0)
+	entry_text_last.insert(0, "Type last name")
+	entry_text_last.grid(row = 3, column = 1)
+	btn_ok = Button(text="Ok", command = lambda: var_label_text.set("My name is " +  entry_text.get() + " " + entry_text_last.get()))
+	btn_ok.grid(row = 4, columnspan = 2)
+	root_widget.mainloop()
+
+main()
